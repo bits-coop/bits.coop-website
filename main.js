@@ -5,7 +5,8 @@ var rcom = require('regl-component')(require('regl'), {
 })
 var viz = {
   cables: require('./demo/cables.js'),
-  wifi: require('./demo/wifi.js')
+  wifi: require('./demo/wifi.js'),
+  gears: require('./demo/gears.js')
 }
 var demo = {}
 Object.keys(viz).forEach(function (key) {
@@ -57,6 +58,14 @@ app.route('/', function (state, emit) {
         color: #f0b0ff;
         text-shadow: 0px 0px 8px #201040;
       }
+      #header .hook4 {
+        margin-top: 1em;
+        color: #c080ff;
+        text-shadow: 0px 0px 8px #201040;
+      }
+      #header .hook4 a:link, #header .hook4 a:visited {
+        color: #c080ff;
+      }
       #header .hook {
         position: relative;
       }
@@ -91,9 +100,22 @@ app.route('/', function (state, emit) {
         min-width: 20ex;
         margin: auto;
       }
+      .demos {
+        background-color: #211429;
+        text-align: center;
+        padding: 0px;
+        padding-top: 3px;
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
       .demo {
+        display: inline-block;
         width: 300px;
         margin: auto;
+        padding: 0px;
+      }
+      .spacer-gif {
+        height: 1em;
       }
       #footer {
         margin-top: 4em;
@@ -126,6 +148,9 @@ app.route('/', function (state, emit) {
           <div class="bg"></div>
           <div class="fg">worker-owned agency</div>
         </div>
+        <div class="hook hook4">
+          <a href="mailto:bitscooperative@gmail.com">email us</a>
+        </div>
       </div>
     </div>
     <div>
@@ -134,14 +159,20 @@ app.route('/', function (state, emit) {
       We specialize in the emerging potential of the web platform.
     </div>
 
-    <div class="demo">
-      ${demo.wifi.render({ width: 300, height: 200 })}
-    </div>
-
     <div class="section">
       We use our deep expertise with webgl, maps, p2p, data replication,
       and modular software architecture to deliver cutting-edge experiences.
     </div>
+
+    <div class="demos">
+      <div class="demo">
+        ${demo.wifi.render({ width: 300, height: 200 })}
+      </div>
+      <div class="demo">
+        ${demo.gears.render({ width: 300, height: 200 })}
+      </div>
+    </div>
+
     <div class="section">
       We work with clients in manufacturing, architecture, engineering, and
       non-profit sectors to deploy web technology to solve problems in the
@@ -155,6 +186,8 @@ app.route('/', function (state, emit) {
     </div>
     <div class="section">
       How can we help?
+      <div class="spacer-gif"></div>
+      <div><a href="mailto:bitscooperative@gmail.com">contact us by email</a></div>
     </div>
 
     <div id="footer">
