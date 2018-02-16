@@ -72,7 +72,7 @@ module.exports = function (regl) {
     depth: { mask: false }
   })
 
-  xhr({ url: 'demo/cables.bga', responseType: 'arraybuffer' }, onxhr)
+  xhr({ url: 'cables.bga', responseType: 'arraybuffer' }, onxhr)
   function onxhr (err, res, arrayBuffer) {
     var data = parseBGA(arrayBuffer).data
     var buffer = regl.buffer({ data: new Float32Array(arrayBuffer) })

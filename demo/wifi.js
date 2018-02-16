@@ -1,5 +1,5 @@
 var mat4 = require('gl-mat4')
-var sphere = require('icosphere')(3)
+var sphere = require('icosphere')(1)
 var glsl = require('glslify')
 
 module.exports = function (regl) {

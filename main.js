@@ -25,7 +25,7 @@ app.use(function (state, emitter) {
   })
 })
 
-app.route('/', function (state, emit) {
+app.route('*', function (state, emit) {
   return html`<body>
     ${rcom.render()}
     <style>
