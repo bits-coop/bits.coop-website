@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "choo": "^6.8.0",
+    "gl-mat4": "^1.1.4",
+    "multi-regl": "^1.1.1",
+    "parse-bga-mesh": "^2.0.0",
+    "regl": "^1.3.1",
+    "regl-camera": "^2.1.1",
+    "regl-component": "^2.0.0",
+    "xhr": "^2.4.1"
+  }
+}
