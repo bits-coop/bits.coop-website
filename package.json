@@ -5,6 +5,7 @@
     "glsl-hsl2rgb": "^1.1.0",
     "glsl-noise": "0.0.0",
     "glslify": "^6.1.0",
+    "icosphere": "^1.0.0",
     "multi-regl": "^1.1.1",
     "parse-bga-mesh": "^2.0.0",
     "regl": "^1.3.1",

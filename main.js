@@ -4,7 +4,8 @@ var rcom = require('regl-component')(require('regl'), {
   extensions: [ 'oes_element_index_uint', 'oes_standard_derivatives' ]
 })
 var viz = {
-  cables: require('./demo/cables.js')
+  cables: require('./demo/cables.js'),
+  wifi: require('./demo/wifi.js')
 }
 var demo = {}
 Object.keys(viz).forEach(function (key) {
@@ -30,7 +31,7 @@ app.route('/', function (state, emit) {
       body {
         margin: 0px;
         font-family: monospace;
-        background-color: #d0b0f0;
+        background-color: #e0d0f0;
       }
       #header {
         position: relative;
@@ -87,6 +88,11 @@ app.route('/', function (state, emit) {
       .section {
         padding: 1em;
         max-width: 80ex;
+        min-width: 20ex;
+        margin: auto;
+      }
+      .demo {
+        width: 300px;
         margin: auto;
       }
       #footer {
@@ -128,15 +134,27 @@ app.route('/', function (state, emit) {
       We specialize in the emerging potential of the web platform.
     </div>
 
+    <div class="demo">
+      ${demo.wifi.render({ width: 300, height: 200 })}
+    </div>
+
     <div class="section">
       We use our deep expertise with webgl, maps, p2p, data replication,
       and modular software architecture to deliver cutting-edge experiences.
+    </div>
+    <div class="section">
+      We work with clients in manufacturing, architecture, engineering, and
+      non-profit sectors to deploy web technology to solve problems in the
+      physical world.
     </div>
     <div class="section">
       We are technologists and artists with decades of experience. We give
       talks, facilitate workshops, publish free and open source software, and
       participate in open collaboration with the greater community. We are
       always sharing what we know.
+    </div>
+    <div class="section">
+      How can we help?
     </div>
 
     <div id="footer">
