@@ -2,6 +2,7 @@ var rotateY = require('gl-mat4/rotateY')
 var identity = require('gl-mat4/identity')
 var perspective = require('gl-mat4/perspective')
 var lookAt = require('gl-mat4/lookAt')
+var glsl = require('glslify')
 
 var parseBGA = require('parse-bga-mesh')
 var xhr = require('xhr')
@@ -31,13 +32,22 @@ module.exports = function (regl) {
 
   var draw = {}
   draw.bg = regl({
-    frag: `
+    frag: glsl`
       precision highp float;
+      #pragma glslify: snoise = require('glsl-noise/simplex/3d')
+      #pragma glslify: hsl2rgb = require('glsl-hsl2rgb')
+      uniform float time, aspect;
       varying vec2 vpos;
       void main () {
         vec3 lo = vec3(0.32,0.2,0.4)*0.4;
         vec3 hi = lo*2.0;
-        gl_FragColor = vec4(mix(lo,hi,vpos.y*0.5+0.5),1);
+        vec2 uv = (vpos*0.5+0.5)*vec2(aspect,1);
+        float s0 = snoise(vec3(uv*25.0,time*0.1))*0.5+0.5;
+        float s1 = snoise(vec3(uv*15.0,time*0.05))*0.5+0.5;
+        float l = pow(s0,32.0) + pow(s1,24.0);
+        float s = 0.5 - (s1*0.5+s0*0.3)*0.3;
+        vec3 star = hsl2rgb(1.0-(s1+s0)*0.2,s,l);
+        gl_FragColor = vec4(star+mix(lo,hi,vpos.y*0.5+0.5),1);
       }
     `,
     vert: `
@@ -49,6 +59,12 @@ module.exports = function (regl) {
         gl_Position = vec4(position,0,1);
       }
     `,
+    uniforms: {
+      time: regl.context('time'),
+      aspect: function (context) {
+        return context.viewportWidth / context.viewportHeight
+      }
+    },
     attributes: {
       position: [-4,-4,-4,+4,+4,+0]
     },
