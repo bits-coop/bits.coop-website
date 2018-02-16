@@ -1,5 +1,6 @@
 var mat4 = require('gl-mat4')
 var sphere = require('icosphere')(3)
+var glsl = require('glslify')
 
 module.exports = function (regl) {
   //var camera = require('regl-camera')(regl,
@@ -29,6 +30,47 @@ module.exports = function (regl) {
     box: box(regl),
     radio: radio(regl)
   }
+  draw.bg = regl({
+    frag: glsl`
+      precision highp float;
+      #pragma glslify: snoise = require('glsl-noise/simplex/3d')
+      #pragma glslify: hsl2rgb = require('glsl-hsl2rgb')
+      uniform float time, aspect;
+      varying vec2 vpos;
+      void main () {
+        vec3 lo = vec3(0.32,0.2,0.4)*0.3;
+        vec3 hi = lo*1.5;
+        vec2 uv = (vpos*0.5+0.5)*vec2(aspect,1);
+        float s0 = snoise(vec3(uv*25.0,time*0.1))*0.5+0.5;
+        float s1 = snoise(vec3(uv*50.0,time*0.2))*0.5+0.5;
+        float l = pow(s0,32.0) + pow(s1,24.0);
+        float s = 0.5 - (s1*0.5+s0*0.3)*0.3;
+        vec3 star = hsl2rgb(1.0-(s1+s0)*0.2,s,l);
+        gl_FragColor = vec4(star+mix(lo,hi,vpos.y*0.5+0.5),1);
+      }
+    `,
+    vert: `
+      precision highp float;
+      attribute vec2 position;
+      varying vec2 vpos;
+      void main () {
+        vpos = position;
+        gl_Position = vec4(position,0,1);
+      }
+    `,
+    uniforms: {
+      time: regl.context('time'),
+      aspect: function (context) {
+        return context.viewportWidth / context.viewportHeight
+      }
+    },
+    attributes: {
+      position: [-4,-4,-4,+4,+4,+0]
+    },
+    elements: [[0,1,2]],
+    depth: { mask: false }
+  })
+
   var boxProps = []
   var radioProps = []
 
@@ -117,9 +159,9 @@ module.exports = function (regl) {
     )
   }
 
-  var bg = [0xe0,0xd0,0xf0,0xff].map(function (x) { return x/0xff })
   regl.frame(function () {
-    regl.clear({ color: bg, depth: true })
+    regl.clear({ color: [0.13,0.08,0.16,1], depth: true })
+    draw.bg()
     camera(function () {
       draw.box(boxProps)
       draw.radio(radioProps)
@@ -141,7 +183,7 @@ module.exports = function (regl) {
             * pow(clamp(0.0,1.0,1.0-d*0.7),8.0)
             * (sin(d-(time*0.5+id*13.0)*blink*0.25+1.57)*0.5+0.5)
           ;
-          gl_FragColor = vec4(vec3(0.2,0.1,0.3)*a,a*0.8);
+          gl_FragColor = vec4(vec3(0.2,0.1,0.3)*8.0*a,a*0.4);
         }
       `,
       vert: `

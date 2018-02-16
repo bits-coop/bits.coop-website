@@ -5,8 +5,8 @@ var rcom = require('regl-component')(require('regl'), {
 })
 var viz = {
   cables: require('./demo/cables.js'),
-  wifi: require('./demo/wifi.js'),
-  gears: require('./demo/gears.js')
+  wifi: require('./demo/wifi.js')
+  //gears: require('./demo/gears.js')
 }
 var demo = {}
 Object.keys(viz).forEach(function (key) {
@@ -37,6 +37,9 @@ app.route('/', function (state, emit) {
       #header {
         position: relative;
         overflow-x: hidden;
+        overflow-y: hidden;
+        background-color: #211429;
+        height: 300px;
       }
       #header .blurb {
         text-shadow: 0px 0px 1px #f080ff;
@@ -100,19 +103,15 @@ app.route('/', function (state, emit) {
         min-width: 20ex;
         margin: auto;
       }
-      .demos {
-        background-color: #211429;
-        text-align: center;
-        padding: 0px;
-        padding-top: 3px;
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
       .demo {
-        display: inline-block;
-        width: 300px;
-        margin: auto;
-        padding: 0px;
+        background-color: #211429;
+        overflow-x: hidden;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      .demo-header {
+        border: 1px solid red;
+        background-color: white;
       }
       .spacer-gif {
         height: 1em;
@@ -130,10 +129,12 @@ app.route('/', function (state, emit) {
       }
     </style>
     <div id="header">
-      ${demo.cables.render({
-        width: state.width,
-        height: 300
-      })}
+      <div class="header-demo">
+        ${demo.cables.render({
+          width: state.width,
+          height: 300
+        })}
+      </div>
       <div class="blurb">
         <h1>bits.coop</h1>
         <div class="hook hook1">
@@ -153,7 +154,6 @@ app.route('/', function (state, emit) {
         </div>
       </div>
     </div>
-    <div>
 
     <div class="section">
       We specialize in the emerging potential of the web platform.
@@ -164,19 +164,14 @@ app.route('/', function (state, emit) {
       and modular software architecture to deliver cutting-edge experiences.
     </div>
 
-    <div class="demos">
-      <div class="demo">
-        ${demo.wifi.render({ width: 300, height: 200 })}
-      </div>
-      <div class="demo">
-        ${demo.gears.render({ width: 300, height: 200 })}
-      </div>
+    <div class="demo">
+      ${demo.wifi.render({ width: state.width, height: 200 })}
     </div>
 
     <div class="section">
       We work with clients in manufacturing, architecture, engineering, and
-      non-profit sectors to deploy web technology to solve problems in the
-      physical world.
+      non-profit sectors to integrate web technology into factories,
+      professional tools, and remote field work.
     </div>
     <div class="section">
       We are technologists and artists with decades of experience. We give

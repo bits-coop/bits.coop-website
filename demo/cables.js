@@ -255,7 +255,7 @@ module.exports = function (regl) {
           float burst3 = pow(sin(t*2.0+vid+vkm/50000.0+5.2)*0.5+0.5,vkm*0.05);
           float burst = max(max(burst0,burst1),max(burst2,burst3));
           vec4 e = vec4(0.5,0.3,0.8,1);
-          gl_FragColor = mix(vec4(0.1,0.15,0.3,0.2),e,burst);
+          gl_FragColor = mix(vec4(0.9,0.95,1.0,0.2),e,burst);
         }
       `,
       vert: `
