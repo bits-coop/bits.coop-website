@@ -30,22 +30,72 @@ app.route('/', function (state, emit) {
       body {
         margin: 0px;
         font-family: monospace;
+        background-color: #d0b0f0;
       }
       #header {
         position: relative;
+        overflow-x: hidden;
       }
-      #header h1 {
-        color: #e0d0f0;
-        font-size: 48px;
+      #header .blurb {
+        text-shadow: 0px 0px 1px #f080ff;
         position: absolute;
         top: 50px;
         right: 30px;
         text-align: center;
         z-index: 1000;
-        text-shadow: 0px 0px 4px #402080;
+      }
+      #header .hook1 {
+        padding: 0.5em;
+      }
+      #header .hook2 {
+        margin-top: 0.5em;
+        color: #80a0ff;
+      }
+      #header .hook3 {
+        margin-top: 0.5em;
+        color: #f0b0ff;
+        text-shadow: 0px 0px 8px #201040;
+      }
+      #header .hook {
+        position: relative;
+      }
+      #header .hook1 .bg {
+        background-color: #f080ff;
+      }
+      #header .hook2 .bg {
+        background-color: #302040;
+      }
+      #header .hook .bg {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        opacity: 0.5;
+        z-index: 1001;
+      }
+      #header .hook .fg {
+        position: relative;
+        z-index: 1002;
+      }
+      #header h1 {
+        color: #e0d0f0;
+        font-size: 48px;
+        text-shadow: 0px 0px 4px #802080;
+        margin-bottom: 0.25em;
+      }
+      .section {
+        padding: 1em;
+        max-width: 80ex;
+        margin: auto;
+      }
+      #footer {
+        margin-top: 4em;
+        margin-bottom: 2em;
+        text-align: center;
       }
       @media screen and (min-width: 700px) {
-        #header h1 {
+        #header .blurb {
           left: 50%;
           right: auto;
         }
@@ -56,7 +106,43 @@ app.route('/', function (state, emit) {
         width: state.width,
         height: 300
       })}
-      <h1>bits.coop</h1>
+      <div class="blurb">
+        <h1>bits.coop</h1>
+        <div class="hook hook1">
+          <div class="bg"></div>
+          <div class="fg">emerging web technology</div>
+        </div>
+        <div class="hook hook3">
+          <div class="bg"></div>
+          <div class="fg">webgl, p2p, maps, offline</div>
+        </div>
+        <div class="hook hook2">
+          <div class="bg"></div>
+          <div class="fg">worker-owned agency</div>
+        </div>
+      </div>
+    </div>
+    <div>
+
+    <div class="section">
+      We specialize in the emerging potential of the web platform.
+    </div>
+
+    <div class="section">
+      We use our deep expertise with webgl, maps, p2p, data replication,
+      and modular software architecture to deliver cutting-edge experiences.
+    </div>
+    <div class="section">
+      We are technologists and artists with decades of experience. We give
+      talks, facilitate workshops, publish free and open source software, and
+      participate in open collaboration with the greater community. We are
+      always sharing what we know.
+    </div>
+
+    <div id="footer">
+      made with <a href="https://choo.io/">choo</a>
+      and <a href="http://regl.party/">regl</a>
+      in puna district hawai'i
     </div>
   </body>`
 })

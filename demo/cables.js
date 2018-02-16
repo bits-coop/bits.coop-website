@@ -40,10 +40,10 @@ module.exports = function (regl) {
       varying vec2 vpos;
       void main () {
         vec3 lo = vec3(0.32,0.2,0.4)*0.4;
-        vec3 hi = lo*2.0;
+        vec3 hi = lo*2.5;
         vec2 uv = (vpos*0.5+0.5)*vec2(aspect,1);
         float s0 = snoise(vec3(uv*25.0,time*0.1))*0.5+0.5;
-        float s1 = snoise(vec3(uv*15.0,time*0.05))*0.5+0.5;
+        float s1 = snoise(vec3(uv*50.0,time*0.2))*0.5+0.5;
         float l = pow(s0,32.0) + pow(s1,24.0);
         float s = 0.5 - (s1*0.5+s0*0.3)*0.3;
         vec3 star = hsl2rgb(1.0-(s1+s0)*0.2,s,l);
@@ -158,8 +158,8 @@ module.exports = function (regl) {
         void main () {
           vec3 N = normalize(vpos);
           vec3 L = vpos-eye;
-          float g = pow(max(0.0,dot(L,N)),1.0);
-          gl_FragColor = vec4(vec3(0.4,0.5,0.6)*g*2.0,g*0.8);
+          float g = pow(max(0.0,dot(L,N)),6.0);
+          gl_FragColor = vec4(vec3(1.2,0.5,0.6)*g*2.0,min(1.0,g)*0.3);
         }
       `,
       vert: `
@@ -169,7 +169,7 @@ module.exports = function (regl) {
         varying vec3 vpos;
         void main () {
           vpos = position;
-          gl_Position = projection * view * vec4(vpos*1.015,1);
+          gl_Position = projection * view * vec4(vpos*1.035,1);
         }
       `,
       cull: { enable: true, face: 'front' },
