@@ -17,9 +17,16 @@
     "yo-yoify": "^4.3.0"
   },
   "scripts": {
-    "build": "browserify -t yo-yoify -t uglifyify -t es2020 main.js | uglifyjs -cm | indexhtmlify -t bits.coop > build.html"
+    "build": "browserify -t yo-yoify -t uglifyify -t es2020 main.js | uglifyjs -cm | indexhtmlify -t bits.coop > build.html",
+    "dev": "budo main.js",
+    "download": "curl -O https://bits.coop/cables.bga"
   },
   "browserify": {
-    "transform": [ "glslify" ]
+    "transform": [
+      "glslify"
+    ]
+  },
+  "devDependencies": {
+    "budo": "^11.5.0"
   }
 }
