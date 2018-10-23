@@ -9,6 +9,7 @@ app.use(function (state, emitter) {
   window.addEventListener('resize', function () {
     state.window.width = window.innerWidth
     state.window.height = window.innerHeight
+    emitter.emit('resize', state.window.width, state.window.height)
     emitter.emit('render')
   })
 })
@@ -19,13 +20,15 @@ var viz = {
   //gears: require('./demo/gears.js')
 }
 app.use(function (state, emitter) {
+  state.demo = {}
   state.rcom = require('regl-component')(require('regl'), {
     extensions: [ 'oes_element_index_uint', 'oes_standard_derivatives' ]
   })
-  state.demo = {}
   Object.keys(viz).forEach(function (key) {
     var rc = state.rcom.create()
-    viz[key](rc.regl)
+    rc.on('regl', function (regl) {
+      viz[key](regl)
+    })
     state.demo[key] = rc
   })
 })
