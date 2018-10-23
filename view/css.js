@@ -93,7 +93,6 @@ module.exports = html`<style>
     margin-bottom: 1em;
   }
   .demo-header {
-    border: 1px solid red;
     background-color: white;
   }
   .spacer-gif {
@@ -113,5 +112,85 @@ module.exports = html`<style>
       left: auto;
       right: 20%;
     }
+  }
+  .header-bar {
+    margin-bottom: 1em;
+    background-color: #211429;
+    padding: 3px;
+  }
+  .header-bar .link {
+    margin-right: 3px;
+    text-align: center;
+    cursor: pointer;
+    padding: 1ex;
+    display: inline-block;
+    min-width: 15ex;
+    color: white;
+    background-color: #803090;
+  }
+  .header-bar .link:nth-child(odd) {
+    background-color: #5090b0;
+  }
+  .header-bar .link {
+    background-color: #b01090;
+  }
+  .header-bar .link.title {
+    background-color: #9030c0;
+  }
+  .header-bar .link a:link, .header-bar .link a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  .about .members {
+    text-align: center;
+    max-width: 940px;
+    margin: auto;
+    padding-top: 1em;
+  }
+  .about .members .member {
+    text-align: left;
+    display: inline-block;
+    width: 400px;
+    min-height: 350px;
+    vertical-align: top;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 2em;
+    background-color: #f5e5ff;
+    padding: 15px;
+    padding-bottom: 25px;
+  }
+  .about .members .member:nth-child(odd) {
+    background-color: #f5e5ff;
+  }
+  .about .members .member .photo {
+    display: inline-block;
+    float: left;
+    margin-right: 2ex;
+    margin-bottom: 1ex;
+    margin-left: -25px;
+    margin-top: -25px;
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+  }
+  .about .members .member .name {
+    color: purple;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    margin-bottom: 0.5em;
+    background-color: #b01090;
+    color: white;
+  }
+  .about .members .member:nth-child(even) .name {
+    background-color: #5090b0;
+    color: white;
+  }
+  .header-bar .link {
+    background-color: #b01090;
+  }
+  .about .members .member .blurb a {
+    padding-left: 1ex;
+    text-decoration: none;
   }
 </style>`
