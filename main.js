@@ -10,7 +10,6 @@ app.use(function (state, emitter) {
     state.window.width = window.innerWidth
     state.window.height = window.innerHeight
     emitter.emit('resize', state.window.width, state.window.height)
-    emitter.emit('render')
   })
 })
 
@@ -30,6 +29,12 @@ app.use(function (state, emitter) {
       viz[key](regl)
     })
     state.demo[key] = rc
+  })
+  emitter.on('resize', function (width, height) {
+    // hax:
+    Object.keys(state.demo).forEach(function (key) {
+      state.demo[key]._element.style.width = width + 'px'
+    })
   })
 })
 
