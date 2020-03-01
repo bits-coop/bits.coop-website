@@ -12,12 +12,13 @@
     "regl": "^1.3.1",
     "regl-camera": "^2.1.1",
     "regl-component": "^3.0.1",
+    "tinyify": "^2.4.3",
     "uglifyify": "^4.0.5",
     "xhr": "^2.4.1",
     "yo-yoify": "^4.3.0"
   },
   "scripts": {
-    "build": "browserify -t yo-yoify -t uglifyify -t es2020 main.js | uglifyjs -cm | indexhtmlify -t bits.coop > build.html",
+    "build": "browserify -t yo-yoify -p tinyify main.js | indexhtmlify -t bits.coop > build.html",
     "dev": "budo main.js",
     "download": "curl -O https://bits.coop/cables.bga"
   },

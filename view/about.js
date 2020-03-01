@@ -3,7 +3,7 @@ var layout = require('./layout.js')
 var members = [
   {
     name: 'rhodey orbits',
-    photo: '/images/bw/rhodey.jpg',
+    photo: '/images/rhodey.jpg',
     blurb: `
       Polyglot developer with an information security upbringing and full stack
       experience from discrete transistors to CSS and back, eleven years and
@@ -18,7 +18,7 @@ var members = [
   },
   {
     name: 'marina kukso',
-    photo: '/images/bw/marina.jpg',
+    photo: '/images/marina.jpg',
     blurb: html`<div>
       Marina Kukso is a co-founder and member of bits.coop. She's been
       programming since 2014 and primarily writes javascript, GLSL, and bash. In
@@ -28,20 +28,22 @@ var members = [
       and co-founder of the Oakland hackerspace
       <a href="https://sudoroom.org">Sudo Room</a>.
       Before working with bits, she was Managing Director
-      of the non-profit LocalWiki (localwiki.org) and Editorial Manager at
-      <a href="https://plos.org">PLOS</a>.
+      of the non-profit <a href="https://localwiki.org">LocalWiki</a>
+      and Editorial Manager at <a href="https://plos.org">PLOS</a>.
     </div>`
   },
   {
     name: 'scott edmonds',
-    photo: '/images/bw/scott.jpg',
+    photo: '/images/scott.jpg',
     blurb: `
       A Creative Technologist, Scott Edmonds believes that human communication
       is an art and only through creative technology can the world truly
       understand itself. It is a philosophy he recognized before it was popular.
       His broader effort to demystify the depth and breadth of that concept is
-      reflected in his early studies, career and constant curiosity. Part of his
-      journey includes summer clinical research in infectious diseases.
+      reflected in his early studies, career and deep curiosity. Part of his
+      journey includes summer clinical research in infectious diseases and
+      architecting innovative features for Ask Jeeves.
+
       Complementary to his technological expertise, Scott is also an
       accomplished electronic dance music musician and has a great appreciation
       for the way communication vehicles converge.
@@ -49,17 +51,17 @@ var members = [
   },
   {
     name: 'james halliday',
-    photo: '/images/bw/substack.jpg',
+    photo: '/images/substack.jpg',
     blurb: `
       A very full stack developer, James is author of hundreds of npm packages
       including browserify and 1000+ open source projects including the first
       nodeschool workshop.
       James has worked on a wide range of projects, including an offline p2p
-      mapping database, webgl for art, professional tools, and maps.
-      James has hacked on industrial robots, underwater submersibles,
-      quadcopters, and circuit boards.
-      James has given 50+ conference talks and also does live coding for webgl
-      and webaudio performances.
+      mapping database, industrial robots, underwater submersibles, quad
+      copters, and webgl for art, professional tools, and maps.
+      James has written popular guides such as the stream handbook and has given
+      50+ conference talks. He also does live coding for webgl and webaudio
+      performances.
     `
   }
 ]

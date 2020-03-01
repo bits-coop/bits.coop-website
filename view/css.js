@@ -159,6 +159,8 @@ module.exports = html`<style>
     background-color: #f5e5ff;
     padding: 15px;
     padding-bottom: 25px;
+    border-bottom: 2px solid #9030c0;
+    border-right: 2px solid #9030c0;
   }
   .about .members .member:nth-child(odd) {
     background-color: #f5e5ff;
