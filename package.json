@@ -18,7 +18,7 @@
     "yo-yoify": "^4.3.0"
   },
   "scripts": {
-    "build": "browserify -t yo-yoify -p tinyify main.js | indexhtmlify -t bits.coop > build.html",
+    "build": "browserify -t yo-yoify -p tinyify main.js | indexhtmlify --title bits.coop > build.html",
     "dev": "budo main.js",
     "download": "curl -O https://bits.coop/cables.bga"
   },

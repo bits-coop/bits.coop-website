@@ -3,7 +3,7 @@ var layout = require('./layout.js')
 var members = [
   {
     name: 'karissa mckelvey',
-    photo: '/images/karissa.jpeg',
+    photo: '/images/karissa.jpg',
     blurb: html`<div>
       Karissa McKelvey is a <a href="http://github.com/okdistribute"
       >public interest technologist</a> and
