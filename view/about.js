@@ -2,19 +2,20 @@ var html = require('choo/html')
 var layout = require('./layout.js')
 var members = [
   {
-    name: 'rhodey orbits',
-    photo: '/images/rhodey.jpg',
-    blurb: `
-      Polyglot developer with an information security upbringing and full stack
-      experience from discrete transistors to CSS and back, eleven years and
-      counting. Rhodey spent three years working at Open Whisper Systems, makers
-      of the pioneering end-to-end encrypted messaging app Signal. The majority
-      of Rhodey's professional work has been with Android and low-latency Java
-      development in cloud environments, however the focus of the last two years
-      has been JavaScript peer-to-peer applications (Dat & SSB) and polygot
-      software defined radio. Some other words you might be looking for: Docker,
-      Protocol Buffers, Choo & React & Angular, S3 & B2, Kafka and Netty.
-    `
+    name: 'karissa mckelvey',
+    photo: '/images/karissa.jpeg',
+    blurb: html`<div>
+    Karissa McKelvey is a <a href="http://github.com/okdistribute">public interest technologist</a> and <a href="https://scholar.google.com/citations?user=RM2tB8EAAAAJ&hl=en&oi=ao">researcher</a> working in solidarity with marginalized communities to defend their rights.
+    Her work has been depended upon by at-risk users including environmental
+    & human rights defenders, journalists, and civil society activists living
+    within repressive environments. Karissa's perspectives and work have been
+    featured in high-profile news outlets such as the New York Times, Wall
+    Street Journal, and NPR as well as [various conference keynote
+    talks](https://okdistribute.xyz/talks). Since 2014, she has focused on
+    developing peer-to-peer technology that prioritizes security
+    and access. As a founding member of the dat:// protocol, she governs
+    the open source project in partnership with various working groups, companies, and
+    non-profit organizations.</div>`
   },
   {
     name: 'marina kukso',
