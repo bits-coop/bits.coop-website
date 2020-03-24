@@ -5,17 +5,21 @@ var members = [
     name: 'karissa mckelvey',
     photo: '/images/karissa.jpeg',
     blurb: html`<div>
-    Karissa McKelvey is a <a href="http://github.com/okdistribute">public interest technologist</a> and <a href="https://scholar.google.com/citations?user=RM2tB8EAAAAJ&hl=en&oi=ao">researcher</a> working in solidarity with marginalized communities to defend their rights.
-    Her work has been depended upon by at-risk users including environmental
-    & human rights defenders, journalists, and civil society activists living
-    within repressive environments. Karissa's perspectives and work have been
-    featured in high-profile news outlets such as the New York Times, Wall
-    Street Journal, and NPR as well as [various conference keynote
-    talks](https://okdistribute.xyz/talks). Since 2014, she has focused on
-    developing peer-to-peer technology that prioritizes security
-    and access. As a founding member of the dat:// protocol, she governs
-    the open source project in partnership with various working groups, companies, and
-    non-profit organizations.</div>`
+      Karissa McKelvey is a <a href="http://github.com/okdistribute"
+      >public interest technologist</a> and
+      <a href="https://scholar.google.com/citations?user=RM2tB8EAAAAJ&hl=en&oi=ao"
+      >researcher</a> working in solidarity with marginalized communities to
+      >defend their rights. Her work has been depended upon by at-risk users
+      >including environmental & human rights defenders, journalists, and civil
+      >society activists living within repressive environments. Karissa's
+      >perspectives and work have been featured in high-profile news outlets
+      >such as the New York Times, Wall Street Journal, and NPR as well as
+      <a href="https://okdistribute.xyz/talks">various conference keynote
+      talks</a>. Since 2014, she has focused on developing peer-to-peer
+      technology that prioritizes security and access. As a founding member of
+      the dat:// protocol, she governs the open source project in partnership
+      with various working groups, companies, and non-profit organizations.
+    </div>`
   },
   {
     name: 'marina kukso',
